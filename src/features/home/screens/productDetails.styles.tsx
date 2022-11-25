@@ -1,3 +1,4 @@
+import { AntDesign } from "@expo/vector-icons";
 import {
   TouchableOpacity,
   ScrollView,
@@ -38,6 +39,10 @@ export const CloseContainer = styled(TouchableOpacity)`
   padding: ${(props) => props.theme.space[1]};
   border-radius: 50px;
 `;
+
+export const Icon = styled(AntDesign).attrs((props) => ({
+  color: props.theme.colors.text.primary,
+}))``;
 
 export const Row = styled.View`
   flex-direction: row;

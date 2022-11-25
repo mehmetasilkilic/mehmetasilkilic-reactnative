@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 
-// Define a type for the slice state
 interface UtilsState {
   appearance: boolean;
+  darkMode: boolean;
+  search: boolean;
 }
 
-// Define the initial state using that type
 const initialState: UtilsState = {
   appearance: false,
+  darkMode: false,
+  search: false,
 };
 
 export const utilsSlice = createSlice({
@@ -19,10 +21,19 @@ export const utilsSlice = createSlice({
       const appearance = !state.appearance;
       return { ...state, appearance };
     },
+    toggleDarkMode(state) {
+      const darkMode = !state.darkMode;
+      return { ...state, darkMode };
+    },
+    toggleSearch(state) {
+      const search = !state.search;
+      return { ...state, search };
+    },
   },
 });
 
-export const { toggleAppearance } = utilsSlice.actions;
+export const { toggleAppearance, toggleDarkMode, toggleSearch } =
+  utilsSlice.actions;
 
 export const selectAppearance = (state: RootState) => state.utils.appearance;
 

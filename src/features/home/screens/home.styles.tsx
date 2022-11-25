@@ -1,3 +1,4 @@
+import { AntDesign } from "@expo/vector-icons";
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
@@ -17,3 +18,7 @@ export const CreateButton = styled(TouchableOpacity)`
   border-width: 1px;
   border-color: ${(props) => props.theme.colors.ui.primary};
 `;
+
+export const Icon = styled(AntDesign).attrs((props) => ({
+  color: props.theme.colors.text.inverse,
+}))``;

@@ -1,5 +1,4 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { AntDesign } from "@expo/vector-icons";
 
 import { RootStackParams } from "../../../infrastructure/navigation/app.navigator";
 
@@ -14,6 +13,7 @@ import {
   DescriptionContainer,
   CategoryContainer,
   Row,
+  Icon,
 } from "./productDetails.styles";
 
 type Props = NativeStackScreenProps<RootStackParams, "ProductDetails">;
@@ -59,7 +59,7 @@ export const ProductDetails = ({ navigation }: Props) => {
     <>
       <SafeArea>
         <CloseContainer onPress={close}>
-          <AntDesign name="close" size={24} color="black" />
+          <Icon name="close" size={24} color="black" />
         </CloseContainer>
         <ProductImage source={{ uri: product.Avatar }} />
       </SafeArea>

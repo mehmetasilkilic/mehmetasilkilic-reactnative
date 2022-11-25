@@ -1,7 +1,8 @@
 import { TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useForm, Controller } from "react-hook-form";
-import { Ionicons } from "@expo/vector-icons";
+
+import { useAppSelector } from "../../../store/hooks";
 
 import { Text } from "../../../components/typography/text.component";
 import { SafeArea } from "../../../components/utils/safeArea.component";
@@ -12,21 +13,20 @@ import {
   InputWrapper,
   TitleWrapper,
   InputLight,
+  InputDark,
   SubmitContainer,
   FormContainer,
+  Icon,
 } from "./create.styles";
 
 type Props = NativeStackScreenProps<RootStackParams, "Create">;
 
 export const Create = ({ navigation }: Props) => {
+  const darkMode = useAppSelector((state) => state.utils.darkMode);
+
   const goHome = () => navigation.navigate("Home");
 
-  /*   let Input;
-  if (autoDarkMode) {
-    Input = phoneTheme === "dark" ? InputDark : InputLight;
-  } else {
-    Input = darkMode ? InputDark : InputLight;
-  } */
+  const Input = darkMode ? InputDark : InputLight;
 
   /*   const onSubmit = (formData) => {
     dispatch(register(formData));
@@ -51,7 +51,7 @@ export const Create = ({ navigation }: Props) => {
       <SafeArea>
         <TitleWrapper>
           <TouchableOpacity onPress={goHome}>
-            <Ionicons name="arrow-back" size={30} color="black" />
+            <Icon name="arrow-back" size={30} />
           </TouchableOpacity>
           <Text variant="titleMedium">Create A New Product</Text>
         </TitleWrapper>
@@ -63,7 +63,7 @@ export const Create = ({ navigation }: Props) => {
                 required: true,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <InputLight
+                <Input
                   label="Name"
                   mode="outlined"
                   onBlur={onBlur}
@@ -84,7 +84,7 @@ export const Create = ({ navigation }: Props) => {
                 required: true,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <InputLight
+                <Input
                   label="Price"
                   mode="outlined"
                   onBlur={onBlur}
@@ -105,7 +105,7 @@ export const Create = ({ navigation }: Props) => {
                 required: true,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <InputLight
+                <Input
                   label="Description"
                   mode="outlined"
                   multiline={true}
@@ -128,7 +128,7 @@ export const Create = ({ navigation }: Props) => {
                 required: true,
               }}
               render={({ field: { onChange, onBlur, value } }) => (
-                <InputLight
+                <Input
                   label="Image Link"
                   mode="outlined"
                   onBlur={onBlur}
@@ -143,13 +143,11 @@ export const Create = ({ navigation }: Props) => {
             />
           </InputWrapper>
         </FormContainer>
-      </SafeArea>
-      <TouchableOpacity>
-        {/*  handleSubmit()(onSubmit)  */}
         <SubmitContainer>
+          {/*  handleSubmit()(onSubmit)  */}
           <Text variant="titleSmallInverse">Add Product</Text>
         </SubmitContainer>
-      </TouchableOpacity>
+      </SafeArea>
     </>
   );
 };
