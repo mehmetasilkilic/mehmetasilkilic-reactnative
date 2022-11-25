@@ -4,11 +4,14 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { RootStackParams } from "../../../infrastructure/navigation/app.navigator";
 
+import { useAppSelector } from "../../../store/hooks";
+
 import { SafeAreaSecondary } from "../../../components/utils/safeArea.component";
 
 import { Header } from "../components/header.component";
 import { CategoryList } from "../components/categoryList.component";
 import { ProductCard } from "../components/productCard.component";
+import { ProductCardHorizontal } from "../components/productCardHorizontal.component";
 
 import { ProductList, CreateButton } from "./home.styles";
 
@@ -39,12 +42,20 @@ const products = [
 ];
 
 export const Home = ({ navigation }: Props) => {
+  const appearance = useAppSelector((state) => state.utils.appearance);
+
+  console.log(appearance);
+
   const goCreate = () => navigation.navigate("Create");
   const goProduct = () => navigation.navigate("ProductDetails", { id: 1 });
 
   const renderItem: ListRenderItem<ProductProps> = ({ item }) => (
     <TouchableOpacity onPress={goProduct}>
-      <ProductCard data={item} />
+      {appearance ? (
+        <ProductCardHorizontal data={item} />
+      ) : (
+        <ProductCard data={item} />
+      )}
     </TouchableOpacity>
   );
 
@@ -54,7 +65,8 @@ export const Home = ({ navigation }: Props) => {
       <CategoryList />
       <ProductList
         data={products}
-        numColumns={2}
+        numColumns={appearance ? 1 : 2}
+        key={appearance ? 1 : 2}
         renderItem={renderItem}
         keyExtractor={(item: ProductProps) => item.id}
       />
