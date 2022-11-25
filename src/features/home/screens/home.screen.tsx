@@ -1,5 +1,6 @@
 import { ListRenderItem, TouchableOpacity } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { AntDesign } from "@expo/vector-icons";
 
 import { RootStackParams } from "../../../infrastructure/navigation/app.navigator";
 
@@ -9,7 +10,7 @@ import { Header } from "../components/header.component";
 import { CategoryList } from "../components/categoryList.component";
 import { ProductCard } from "../components/productCard.component";
 
-import { ProductList } from "./home.styles";
+import { ProductList, CreateButton } from "./home.styles";
 
 type Props = NativeStackScreenProps<RootStackParams, "Home">;
 
@@ -57,6 +58,9 @@ export const Home = ({ navigation }: Props) => {
         renderItem={renderItem}
         keyExtractor={(item: ProductProps) => item.id}
       />
+      <CreateButton onPress={goCreate}>
+        <AntDesign name="plus" size={30} color="white" />
+      </CreateButton>
     </SafeAreaSecondary>
   );
 };

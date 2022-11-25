@@ -3,6 +3,7 @@ export const colors = {
     primary: "#ffffff", // 1a1d22
     secondary: "#f1f1f1",
     tertiary: "#4aa8d0",
+    inverse: "#1a1d22",
     black: "#1a1d22",
     disabled: "#EEEEEE",
     error: "#F44336",
