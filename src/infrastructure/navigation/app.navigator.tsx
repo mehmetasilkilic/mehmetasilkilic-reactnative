@@ -1,30 +1,24 @@
-import {
-  NavigationContainer,
-  NavigatorScreenParams,
-} from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TransitionPresets } from "@react-navigation/stack";
 
-import { HomeStackParams } from "./home.navigator";
-
-import { HomeScreenStack } from "./home.navigator";
-import { Create } from "../../features/create/screens/create.screen";
+import { Create } from "../../features/home/screens/create.screen";
+import { Home } from "../../features/home/screens/home.screen";
+import { ProductDetails } from "../../features/home/screens/productDetails.screen";
 
 export type RootStackParams = {
   Home: undefined;
-  HomeStack: NavigatorScreenParams<HomeStackParams>;
   Create: undefined;
   ProductDetails: {
     id: number;
   };
 };
 
-const RootStack = createBottomTabNavigator<RootStackParams>();
+const RootStack = createNativeStackNavigator<RootStackParams>();
 
 const screenOptions = () => {
   return {
     headerShown: false,
-    tabBarShowLabel: false,
-    tabBarStyle: { display: "none" },
   };
 };
 
@@ -32,11 +26,26 @@ export const TabBarNavigator = () => {
   return (
     <NavigationContainer>
       <RootStack.Navigator
-        initialRouteName="HomeStack"
+        initialRouteName="Home"
         screenOptions={screenOptions}
       >
-        <RootStack.Screen name="HomeStack" component={HomeScreenStack} />
-        <RootStack.Screen name="Create" component={Create} />
+        <RootStack.Screen name="Home" component={Home} />
+        <RootStack.Screen
+          name="ProductDetails"
+          component={ProductDetails}
+          options={{
+            title: "ProductDetails",
+            ...TransitionPresets.ModalSlideFromBottomIOS,
+          }}
+        />
+        <RootStack.Screen
+          name="Create"
+          component={Create}
+          options={{
+            title: "Create",
+            ...TransitionPresets.SlideFromRightIOS,
+          }}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );

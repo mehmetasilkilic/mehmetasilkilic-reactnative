@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 
 type VariantsProps = {
   titleSmall: any;
+  titleSmallInverse: any;
   titleLarge: any;
   titleMedium: any;
   hint: any;
@@ -37,6 +38,11 @@ const titleSmall = (theme: any): string => `
     color: ${theme.colors.text.primary};
 `;
 
+const titleSmallInverse = (theme: any): string => `
+    font-size: ${theme.fontSizes.title};
+    color: ${theme.colors.text.inverse};
+`;
+
 const hint = (theme: any): string => `
     font-size: ${theme.fontSizes.button};
     color: ${theme.colors.text.disabled};
@@ -63,6 +69,7 @@ const label = (theme: any): string => `
 
 const variants: VariantsProps = {
   titleSmall,
+  titleSmallInverse,
   titleLarge,
   titleMedium,
   hint,
