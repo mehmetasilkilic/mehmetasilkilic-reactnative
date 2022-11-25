@@ -7,6 +7,12 @@ export const SafeArea = styled(SafeAreaView)`
   ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
 `;
 
+export const SafeAreaSecondary = styled(SafeAreaView)`
+  flex: 1;
+  background-color: ${(props) => props.theme.colors.bg.secondary};
+  ${StatusBar.currentHeight && `padding-top: ${StatusBar.currentHeight}px`}
+`;
+
 export const SafeAreaBottom = styled(SafeAreaView)`
   flex: 0;
   background-color: ${(props) => props.theme.colors.bg.secondary};

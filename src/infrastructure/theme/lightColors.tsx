@@ -1,23 +1,24 @@
 export const colors = {
   ui: {
-    primary: "#E1E3E7", // 1a1d22
-    secondary: "#4aa8d0",
+    primary: "#ffffff", // 1a1d22
+    secondary: "#f1f1f1",
+    tertiary: "#4aa8d0",
     black: "#1a1d22",
     disabled: "#EEEEEE",
     error: "#F44336",
     success: "#138000",
   },
   bg: {
-    primary: "#FFFFFF", // 1a1d22
-    secondary: "#E1E3E7", // E1E3E7
+    primary: "#ffffff", // 1a1d22
+    secondary: "#f1f1f1", // E1E3E7
   },
   text: {
     primary: "#1a1d22", // 262626
     secondary: "#4aa8d0",
     black: "#1a1d22",
-    white: "#FFFFFF",
-    disabled: "#9C9C9C",
-    inverse: "#FFFFFF",
+    white: "#ffffff",
+    disabled: "#9c9c9c",
+    inverse: "#ffffff",
     error: "#F44336",
     success: "#138000",
   },

@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TransitionPresets } from "@react-navigation/stack";
 
 import { Home } from "../../features/home/screens/home.screen";
 import { Product } from "../../features/home/screens/product.screen";
@@ -18,6 +19,7 @@ export const HomeScreenStack = () => {
       initialRouteName="Home"
       screenOptions={{
         headerShown: false,
+        ...TransitionPresets.ModalSlideFromBottomIOS,
       }}
     >
       <HomeStack.Screen name="Home" component={Home} />

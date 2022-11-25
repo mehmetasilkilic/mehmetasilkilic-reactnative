@@ -33,6 +33,7 @@ declare module "styled-components" {
       ui: {
         primary: string;
         secondary: string;
+        tertiary: string;
         black: string;
         disabled: string;
         error: string;
