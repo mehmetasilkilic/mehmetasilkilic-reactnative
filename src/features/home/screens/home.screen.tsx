@@ -6,6 +6,7 @@ import { RootStackParams } from "../../../infrastructure/navigation/app.navigato
 import { SafeAreaSecondary } from "../../../components/utils/safeArea.component";
 
 import { ProductCard } from "../components/productCard.component";
+import { CategoryList } from "../components/categoryList.component";
 
 import { ProductList } from "./home.styles";
 
@@ -47,6 +48,7 @@ export const Home = ({ navigation }: Props) => {
 
   return (
     <SafeAreaSecondary>
+      <CategoryList />
       <ProductList
         data={products}
         numColumns={2}
