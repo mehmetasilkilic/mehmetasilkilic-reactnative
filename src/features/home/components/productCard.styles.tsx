@@ -9,7 +9,7 @@ export const ProductCardContainer = styled.View`
   background-color: ${(props) => props.theme.colors.ui.primary};
   border-radius: ${(props) => props.theme.space[3]};
   margin-left: ${(props) => props.theme.space[3]};
-  margin-top: ${(props) => props.theme.space[3]};
+  margin-bottom: ${(props) => props.theme.space[3]};
   overflow: hidden;
 `;
 

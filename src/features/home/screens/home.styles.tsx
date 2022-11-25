@@ -5,6 +5,4 @@ import { ProductProps } from "./home.screen";
 
 export const ProductList = styled(
   FlatList as new () => FlatList<ProductProps>
-).attrs({
-  contentContainerStyle: { marginBottom: 16 },
-})``;
+)``;

@@ -5,7 +5,9 @@ import { CategoryProps } from "./categoryList.component";
 
 export const CategoryFlatList = styled(
   FlatList as new () => FlatList<CategoryProps>
-)`
+).attrs({
+  contentContainerStyle: { marginBottom: 8 },
+})`
   flex-grow: 0;
 `;
 
