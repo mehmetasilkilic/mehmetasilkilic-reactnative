@@ -13,7 +13,7 @@ export type RootStackParams = {
   Home: undefined;
   HomeStack: NavigatorScreenParams<HomeStackParams>;
   Create: undefined;
-  Product: {
+  ProductDetails: {
     id: number;
   };
 };

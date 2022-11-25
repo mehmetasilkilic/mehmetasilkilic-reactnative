@@ -23,18 +23,18 @@ const defaultTextStyles = (theme: any): string => `
 const titleLarge = (theme: any): string => `
     font-size: ${theme.fontSizes.h4};
     font-weight: ${theme.fontWeights.bold};
-    color: ${theme.colors.text.white};
+    color: ${theme.colors.text.primary};
 `;
 
 const titleMedium = (theme: any): string => `
     font-size: ${theme.fontSizes.h5};
     font-weight: ${theme.fontWeights.bold};
-    color: ${theme.colors.text.inverse};
+    color: ${theme.colors.text.primary};
 `;
 
 const titleSmall = (theme: any): string => `
     font-size: ${theme.fontSizes.title};
-    color: ${theme.colors.text.inverse};
+    color: ${theme.colors.text.primary};
 `;
 
 const hint = (theme: any): string => `

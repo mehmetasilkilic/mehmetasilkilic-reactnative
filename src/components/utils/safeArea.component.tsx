@@ -15,5 +15,5 @@ export const SafeAreaSecondary = styled(SafeAreaView)`
 
 export const SafeAreaBottom = styled(SafeAreaView)`
   flex: 0;
-  background-color: ${(props) => props.theme.colors.bg.secondary};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;

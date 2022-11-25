@@ -2,11 +2,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TransitionPresets } from "@react-navigation/stack";
 
 import { Home } from "../../features/home/screens/home.screen";
-import { Product } from "../../features/home/screens/product.screen";
+import { ProductDetails } from "../../features/home/screens/productDetails.screen";
 
 export type HomeStackParams = {
   Home: undefined;
-  Product: {
+  ProductDetails: {
     id: number;
   };
 };
@@ -23,7 +23,7 @@ export const HomeScreenStack = () => {
       }}
     >
       <HomeStack.Screen name="Home" component={Home} />
-      <HomeStack.Screen name="Product" component={Product} />
+      <HomeStack.Screen name="ProductDetails" component={ProductDetails} />
     </HomeStack.Navigator>
   );
 };

@@ -37,7 +37,7 @@ const products = [
 
 export const Home = ({ navigation }: Props) => {
   const goCreate = () => navigation.navigate("Create");
-  const goProduct = () => navigation.navigate("Product", { id: 1 });
+  const goProduct = () => navigation.navigate("ProductDetails", { id: 1 });
 
   const renderItem: ListRenderItem<ProductProps> = ({ item }) => (
     <TouchableOpacity onPress={goProduct}>
