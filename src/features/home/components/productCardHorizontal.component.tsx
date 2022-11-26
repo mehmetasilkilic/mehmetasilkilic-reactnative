@@ -11,19 +11,19 @@ import {
 } from "./productCardHorizontal.styles";
 
 export const ProductCardHorizontal = ({ data }: { data: ProductProps }) => {
-  const { Name, Price, Avatar } = data;
+  const { name, price, avatar } = data;
 
   return (
     <ProductCardContainer>
-      <ProductImage source={{ uri: Avatar }} />
+      <ProductImage source={{ uri: avatar }} />
       <DescriptionWrapper>
         <TitleContainer>
           <Text variant="label" numberOfLines={1}>
-            {Name}
+            {name}
           </Text>
         </TitleContainer>
         <PriceContainer>
-          <Text variant="label">$ {Price}</Text>
+          <Text variant="label">$ {price}</Text>
         </PriceContainer>
       </DescriptionWrapper>
     </ProductCardContainer>

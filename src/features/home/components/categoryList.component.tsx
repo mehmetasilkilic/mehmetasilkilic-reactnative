@@ -1,61 +1,73 @@
 import { ListRenderItem } from "react-native";
 
+import { useGetCategoriesQuery } from "../../../store/products/products.services";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { selectCategory } from "../../../store/utils/utils";
+
 import { Text } from "../../../components/typography/text.component";
 
 import {
+  CategoryFlatListContainer,
   CategoryFlatList,
   SpacerFooter,
   SpacerHeader,
   CategoryContainer,
+  SelectedCategoryContainer,
 } from "./categoryList.styles";
 
 export type CategoryProps = {
-  id: number;
-  Title: string;
+  _id: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 };
 
-const data = [
-  {
-    id: 1,
-    Title: "Electronics",
-  },
-  {
-    id: 2,
-    Title: "SmartPhone",
-  },
-  {
-    id: 3,
-    Title: "Apple",
-  },
-  {
-    id: 4,
-    Title: "iPhone",
-  },
-  {
-    id: 5,
-    Title: "iPhoneeeeeeeeee",
-  },
-];
 export const CategoryList = () => {
+  const dispatch = useAppDispatch();
+
+  const { data, error, isLoading } = useGetCategoriesQuery();
+  const selected = useAppSelector((state) => state.utils.selected);
+
   const renderItem: ListRenderItem<CategoryProps> = ({
     item,
   }: {
     item: CategoryProps;
   }) => (
-    <CategoryContainer>
-      <Text variant="label">{item.Title}</Text>
-    </CategoryContainer>
+    <>
+      {selected._id === item._id ? (
+        <SelectedCategoryContainer>
+          <Text variant="labelInverse">{item.name}</Text>
+        </SelectedCategoryContainer>
+      ) : (
+        <CategoryContainer onPress={() => dispatch(selectCategory(item))}>
+          <Text variant="label">{item.name}</Text>
+        </CategoryContainer>
+      )}
+    </>
   );
 
+  const All = {
+    _id: "all",
+    name: "All",
+    createdAt: "1",
+    updatedAt: "1",
+    __v: 0,
+  };
+
+  if (isLoading) return <></>;
+
   return (
-    <CategoryFlatList
-      ListFooterComponent={<SpacerFooter />}
-      ListHeaderComponent={<SpacerHeader />}
-      data={data}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      renderItem={renderItem}
-      keyExtractor={(item: CategoryProps) => item.id}
-    />
+    <CategoryFlatListContainer>
+      <CategoryFlatList
+        ListFooterComponent={<SpacerFooter />}
+        ListHeaderComponent={<SpacerHeader />}
+        data={[All, ...data.categories]}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        renderItem={renderItem}
+        keyExtractor={(item: CategoryProps) => item._id}
+      />
+    </CategoryFlatListContainer>
   );
 };

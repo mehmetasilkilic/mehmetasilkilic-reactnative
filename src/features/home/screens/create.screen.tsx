@@ -38,11 +38,11 @@ export const Create = ({ navigation }: Props) => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      Name: "",
-      Price: "",
-      Description: "",
-      Avatar: "",
-      Category: "",
+      name: "",
+      price: "",
+      description: "",
+      avatar: "",
+      category: "",
     },
   });
 

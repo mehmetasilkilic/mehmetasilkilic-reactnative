@@ -18,38 +18,15 @@ import {
 
 type Props = NativeStackScreenProps<RootStackParams, "ProductDetails">;
 
-/* const data = [
-  {
-    id: 1,
-    title: "Electronics",
-  },
-  {
-    id: 2,
-    title: "SmartPhone",
-  },
-  {
-    id: 3,
-    title: "Apple",
-  },
-  {
-    id: 4,
-    title: "iPhone",
-  },
-  {
-    id: 5,
-    title: "iPhoneeeeeeeeee",
-  },
-]; */
-
 const product = {
-  id: "1",
-  Name: "Apple iPhone 14 Pro",
-  Price: 1200,
-  Avatar:
+  _id: "1",
+  name: "Apple iPhone 14 Pro",
+  price: 1200,
+  avatar:
     "https://www.apple.com/v/iphone-14-pro/c/images/overview/hero/hero_endframe__dtzvajyextyu_large.jpg",
-  Description:
+  description:
     "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellatquos cumque illo delectus commodi.",
-  Category: "Electronics",
+  category: "Electronics",
 };
 
 export const ProductDetails = ({ navigation }: Props) => {
@@ -61,7 +38,7 @@ export const ProductDetails = ({ navigation }: Props) => {
         <CloseContainer onPress={close}>
           <Icon name="close" size={24} color="black" />
         </CloseContainer>
-        <ProductImage source={{ uri: product.Avatar }} />
+        <ProductImage source={{ uri: product.avatar }} />
       </SafeArea>
       <ProductScrollViewContainer>
         <ProductScrollView
@@ -69,8 +46,8 @@ export const ProductDetails = ({ navigation }: Props) => {
           showsVerticalScrollIndicator={false}
         >
           <Row>
-            <Text variant="titleMedium">{product.Name}</Text>
-            <Text variant="titleMedium">$ {product.Price}</Text>
+            <Text variant="titleMedium">{product.name}</Text>
+            <Text variant="titleMedium">$ {product.price}</Text>
           </Row>
           {/* <CategoryFlatList
             ListFooterComponent={<Spacer />}
@@ -80,14 +57,14 @@ export const ProductDetails = ({ navigation }: Props) => {
             renderItem={({ item }) => {
               return ( */}
           <CategoryContainer>
-            <Text variant="label">{product.Category}</Text>
+            <Text variant="label">{product.category}</Text>
           </CategoryContainer>
           {/*    );
             }}
             keyExtractor={(item) => item.id}
           /> */}
           <DescriptionContainer>
-            <Text variant="label">{product.Description}</Text>
+            <Text variant="label">{product.description}</Text>
           </DescriptionContainer>
         </ProductScrollView>
       </ProductScrollViewContainer>
