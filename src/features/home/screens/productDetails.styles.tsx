@@ -2,19 +2,13 @@ import { AntDesign } from "@expo/vector-icons";
 import {
   TouchableOpacity,
   ScrollView,
-  Dimensions,
   FlatList,
   StatusBar,
 } from "react-native";
 import styled from "styled-components/native";
 
-const ScrollViewHeight = Dimensions.get("window").height - 350;
-
 export const ProductScrollViewContainer = styled.View`
-  height: ${ScrollViewHeight}px;
-  border-top-left-radius: ${(props) => props.theme.space[3]};
-  border-top-right-radius: ${(props) => props.theme.space[3]};
-  overflow: hidden;
+  height: 350px;
   background-color: ${(props) => props.theme.colors.ui.primary};
 `;
 
@@ -27,7 +21,7 @@ export const ProductScrollView = styled(ScrollView).attrs({
 
 export const ProductImage = styled.Image`
   width: 100%;
-  height: 400px;
+  height: 100%;
 `;
 
 export const CloseContainer = styled(TouchableOpacity)`
@@ -56,12 +50,11 @@ export const CategoryFlatList = styled(FlatList)`
 `;
 
 export const CategoryContainer = styled.View`
-  background-color: ${(props) => props.theme.colors.ui.primary};
-  padding: ${(props) => props.theme.space[2]};
-  margin-left: ${(props) => props.theme.space[2]};
-  border-radius: ${(props) => props.theme.space[2]};
-  border-width: 1px;
-  border-color: ${(props) => props.theme.colors.text.primary};
+  margin-left: ${(props) => props.theme.space[3]};
+`;
+
+export const TitleContainer = styled.View`
+  max-width: 70%;
 `;
 
 export const Spacer = styled.View`

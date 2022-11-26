@@ -33,7 +33,8 @@ export const Home = ({ navigation }: Props) => {
   const { data, error, isLoading } = useGetProductsQuery();
 
   const goCreate = () => navigation.navigate("Create");
-  const goProduct = () => navigation.navigate("ProductDetails", { id: 1 });
+  const goProduct = (id: string) =>
+    navigation.navigate("ProductDetails", { id });
 
   const handleCategoryFilter = (products: ProductProps[]) => {
     if (selected.name === "All") {
@@ -44,13 +45,12 @@ export const Home = ({ navigation }: Props) => {
           return item;
         }
       });
-
       return newData;
     }
   };
 
   const renderItem: ListRenderItem<ProductProps> = ({ item }) => (
-    <TouchableOpacity onPress={goProduct}>
+    <TouchableOpacity onPress={() => goProduct(item._id)}>
       {appearance ? (
         <ProductCardHorizontal data={item} />
       ) : (

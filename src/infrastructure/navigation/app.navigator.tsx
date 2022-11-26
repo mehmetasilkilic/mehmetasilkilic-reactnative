@@ -10,7 +10,7 @@ export type RootStackParams = {
   Home: undefined;
   Create: undefined;
   ProductDetails: {
-    id: number;
+    id: string;
   };
 };
 

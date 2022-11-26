@@ -26,7 +26,8 @@ export type CategoryProps = {
 export const CategoryList = () => {
   const dispatch = useAppDispatch();
 
-  const { data, error, isLoading } = useGetCategoriesQuery();
+  const { data, isLoading } = useGetCategoriesQuery();
+
   const selected = useAppSelector((state) => state.utils.selected);
 
   const renderItem: ListRenderItem<CategoryProps> = ({
@@ -47,7 +48,7 @@ export const CategoryList = () => {
     </>
   );
 
-  const All = {
+  const All: CategoryProps = {
     _id: "all",
     name: "All",
     createdAt: "1",
