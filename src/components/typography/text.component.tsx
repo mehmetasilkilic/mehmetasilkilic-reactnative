@@ -10,7 +10,7 @@ type VariantsProps = {
   error: any;
   caption: any;
   label: any;
-  labelInverse: any;
+  labelWhite: any;
 };
 
 const defaultTextStyles = (theme: any): string => `
@@ -68,9 +68,9 @@ const label = (theme: any): string => `
     font-size: ${theme.fontSizes.body};
 `;
 
-const labelInverse = (theme: any): string => `
+const labelWhite = (theme: any): string => `
     font-size: ${theme.fontSizes.body};
-    color: ${theme.colors.text.inverse};
+    color: ${theme.colors.text.white};
 `;
 
 const variants: VariantsProps = {
@@ -83,7 +83,7 @@ const variants: VariantsProps = {
   error,
   caption,
   label,
-  labelInverse,
+  labelWhite,
 };
 
 type TextProps = {

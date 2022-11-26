@@ -37,7 +37,7 @@ export const CategoryList = () => {
     <>
       {selected._id === item._id ? (
         <SelectedCategoryContainer>
-          <Text variant="labelInverse">{item.name}</Text>
+          <Text variant="labelWhite">{item.name}</Text>
         </SelectedCategoryContainer>
       ) : (
         <CategoryContainer onPress={() => dispatch(selectCategory(item))}>
