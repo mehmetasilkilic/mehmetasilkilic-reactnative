@@ -7,8 +7,8 @@ import type { CategoryProps } from "../../features/home/components/categoryList.
 interface UtilsState {
   appearance: boolean;
   darkMode: boolean;
-  search: boolean;
   selected: CategoryProps;
+  count: number;
 }
 
 const All = {
@@ -22,8 +22,8 @@ const All = {
 const initialState: UtilsState = {
   appearance: false,
   darkMode: false,
-  search: false,
   selected: All,
+  count: 0,
 };
 
 export const utilsSlice = createSlice({
@@ -38,23 +38,19 @@ export const utilsSlice = createSlice({
       const darkMode = !state.darkMode;
       return { ...state, darkMode };
     },
-    toggleSearch(state) {
-      const search = !state.search;
-      return { ...state, search };
-    },
     selectCategory(state, action: PayloadAction<CategoryProps>) {
       const selected = action.payload;
       return { ...state, selected };
     },
+    addCount(state) {
+      const count = state.count + 1;
+      return { ...state, count };
+    },
   },
 });
 
-export const {
-  toggleAppearance,
-  toggleDarkMode,
-  toggleSearch,
-  selectCategory,
-} = utilsSlice.actions;
+export const { toggleAppearance, toggleDarkMode, selectCategory, addCount } =
+  utilsSlice.actions;
 
 export const selectAppearance = (state: RootState) => state.utils.appearance;
 

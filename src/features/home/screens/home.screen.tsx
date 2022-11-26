@@ -29,8 +29,9 @@ export type ProductProps = {
 export const Home = ({ navigation }: Props) => {
   const appearance = useAppSelector((state) => state.utils.appearance);
   const selected = useAppSelector((state) => state.utils.selected);
+  const count = useAppSelector((state) => state.utils.count);
 
-  const { data, error, isLoading } = useGetProductsQuery();
+  const { data, isLoading } = useGetProductsQuery({ count });
 
   const goCreate = () => navigation.navigate("Create");
   const goProduct = (id: string) =>
@@ -38,14 +39,15 @@ export const Home = ({ navigation }: Props) => {
 
   const handleCategoryFilter = (products: ProductProps[]) => {
     if (selected.name === "All") {
-      return products;
+      const allProducts = [...products].reverse();
+      return allProducts;
     } else {
       const newData = products.filter((item: ProductProps) => {
         if (item.category === selected.name) {
           return item;
         }
       });
-      return newData;
+      return newData.reverse();
     }
   };
 

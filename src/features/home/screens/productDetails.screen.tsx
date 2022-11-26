@@ -22,11 +22,11 @@ import {
 type Props = NativeStackScreenProps<RootStackParams, "ProductDetails">;
 
 export const ProductDetails = ({ navigation, route }: Props) => {
-  const { data, error, isLoading } = useGetSingleProductQuery(route.params.id);
+  const { data, isLoading } = useGetSingleProductQuery(route.params.id);
 
   const close = () => navigation.pop();
 
-  if (isLoading) return <Text variant="label"> Loading...</Text>;
+  if (isLoading) return <></>;
 
   return (
     <>

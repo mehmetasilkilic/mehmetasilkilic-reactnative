@@ -1,7 +1,7 @@
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
-import { CategoryProps } from "./categoryList.component";
+import type { CategoryProps } from "./categoryList.component";
 
 export const CategoryFlatListContainer = styled.View`
   height: 35px;
