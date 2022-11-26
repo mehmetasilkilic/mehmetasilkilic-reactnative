@@ -7,6 +7,7 @@ import { useAppSelector } from "../../../store/hooks";
 import { useGetProductsQuery } from "../../../store/products/products.services";
 
 import { SafeAreaSecondary } from "../../../components/utils/safeArea.component";
+import { Loading } from "../../../components/loading/loading.component";
 
 import { Header } from "../components/header.component";
 import { CategoryList } from "../components/categoryList.component";
@@ -14,7 +15,6 @@ import { ProductCard } from "../components/productCard.component";
 import { ProductCardHorizontal } from "../components/productCardHorizontal.component";
 
 import { ProductList, CreateButton, Icon } from "./home.styles";
-import { Text } from "../../../components/typography/text.component";
 
 type Props = NativeStackScreenProps<RootStackParams, "Home">;
 
@@ -61,7 +61,13 @@ export const Home = ({ navigation }: Props) => {
     </TouchableOpacity>
   );
 
-  if (isLoading) return <Text variant="label"> Loading...</Text>;
+  if (isLoading) {
+    return (
+      <SafeAreaSecondary>
+        <Loading />
+      </SafeAreaSecondary>
+    );
+  }
 
   return (
     <SafeAreaSecondary>

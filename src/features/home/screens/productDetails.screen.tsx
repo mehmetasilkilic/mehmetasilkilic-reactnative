@@ -4,6 +4,7 @@ import { RootStackParams } from "../../../infrastructure/navigation/app.navigato
 
 import { useGetSingleProductQuery } from "../../../store/products/products.services";
 
+import { Loading } from "../../../components/loading/loading.component";
 import { SafeArea } from "../../../components/utils/safeArea.component";
 import { Text } from "../../../components/typography/text.component";
 
@@ -26,8 +27,13 @@ export const ProductDetails = ({ navigation, route }: Props) => {
 
   const close = () => navigation.pop();
 
-  if (isLoading) return <></>;
-
+  if (isLoading) {
+    return (
+      <SafeArea>
+        <Loading />
+      </SafeArea>
+    );
+  }
   return (
     <>
       <SafeArea>
