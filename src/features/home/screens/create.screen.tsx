@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { TouchableOpacity, ListRenderItem } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useForm, Controller } from "react-hook-form";
 
@@ -124,106 +125,115 @@ export const Create = ({ navigation }: Props) => {
   return (
     <>
       <SafeArea>
-        <TitleWrapper>
-          <TouchableOpacity onPress={goHome}>
-            <Icon name="arrow-back" size={30} />
-          </TouchableOpacity>
-          <Text variant="titleMedium">Create A New Product</Text>
-        </TitleWrapper>
-        <FormContainer>
-          <InputWrapper>
-            <Controller
-              control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Name"
-                  mode="outlined"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  outlineColor={errors.name ? "#F44336" : "#9C9C9C"}
-                  activeOutlineColor="#4aa8d0"
-                />
-              )}
-              name="name"
-            />
-          </InputWrapper>
-          <InputWrapper>
-            <Controller
-              control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Price"
-                  keyboardType="numeric"
-                  mode="outlined"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  outlineColor={errors.price ? "#F44336" : "#9C9C9C"}
-                  activeOutlineColor="#4aa8d0"
-                />
-              )}
-              name="price"
-            />
-          </InputWrapper>
-          <InputWrapper>
-            <Controller
-              control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Description"
-                  mode="outlined"
-                  multiline={true}
-                  style={{ height: 200, textAlignVertical: "top" }}
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  outlineColor={errors.description ? "#F44336" : "#9C9C9C"}
-                  activeOutlineColor="#4aa8d0"
-                />
-              )}
-              name="description"
-            />
-          </InputWrapper>
-          <InputWrapper>
-            <Controller
-              control={control}
-              rules={{
-                required: true,
-              }}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Input
-                  label="Image Link"
-                  mode="outlined"
-                  onBlur={onBlur}
-                  onChangeText={onChange}
-                  value={value}
-                  outlineColor={errors.avatar ? "#F44336" : "#9C9C9C"}
-                  activeOutlineColor="#4aa8d0"
-                />
-              )}
-              name="avatar"
-            />
-          </InputWrapper>
-          <CategoryListContainer>
-            <CategoryFlatList
-              data={data.categories}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              renderItem={renderItem}
-              keyExtractor={(item: CategoryProps) => item._id}
-            />
-          </CategoryListContainer>
-        </FormContainer>
+        <KeyboardAwareScrollView
+          alwaysBounceVertical={false}
+          keyboardShouldPersistTaps="handled"
+          showsVerticalScrollIndicator={false}
+          bounces={false}
+          bouncesZoom={false}
+          keyboardOpeningTime={0}
+        >
+          <TitleWrapper>
+            <TouchableOpacity onPress={goHome}>
+              <Icon name="arrow-back" size={30} />
+            </TouchableOpacity>
+            <Text variant="titleMedium">Create A New Product</Text>
+          </TitleWrapper>
+          <FormContainer>
+            <InputWrapper>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Name"
+                    mode="outlined"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    outlineColor={errors.name ? "#F44336" : "#9C9C9C"}
+                    activeOutlineColor="#4aa8d0"
+                  />
+                )}
+                name="name"
+              />
+            </InputWrapper>
+            <InputWrapper>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Price"
+                    keyboardType="numeric"
+                    mode="outlined"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    outlineColor={errors.price ? "#F44336" : "#9C9C9C"}
+                    activeOutlineColor="#4aa8d0"
+                  />
+                )}
+                name="price"
+              />
+            </InputWrapper>
+            <InputWrapper>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Description"
+                    mode="outlined"
+                    multiline={true}
+                    style={{ height: 200, textAlignVertical: "top" }}
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    outlineColor={errors.description ? "#F44336" : "#9C9C9C"}
+                    activeOutlineColor="#4aa8d0"
+                  />
+                )}
+                name="description"
+              />
+            </InputWrapper>
+            <InputWrapper>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    label="Image Link"
+                    mode="outlined"
+                    onBlur={onBlur}
+                    onChangeText={onChange}
+                    value={value}
+                    outlineColor={errors.avatar ? "#F44336" : "#9C9C9C"}
+                    activeOutlineColor="#4aa8d0"
+                  />
+                )}
+                name="avatar"
+              />
+            </InputWrapper>
+            <CategoryListContainer>
+              <CategoryFlatList
+                data={data.categories}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                renderItem={renderItem}
+                keyExtractor={(item: CategoryProps) => item._id}
+              />
+            </CategoryListContainer>
+          </FormContainer>
+        </KeyboardAwareScrollView>
         <SubmitContainer onPress={onSubmit}>
           <Text variant="titleSmallInverse">Add Product</Text>
         </SubmitContainer>
