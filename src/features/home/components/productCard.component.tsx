@@ -1,4 +1,4 @@
-import { ProductProps } from "../screens/home.screen";
+import type { ProductProps } from "../screens/home.screen";
 
 import { Text } from "../../../components/typography/text.component";
 

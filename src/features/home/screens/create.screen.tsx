@@ -231,4 +231,3 @@ export const Create = ({ navigation }: Props) => {
     </>
   );
 };
-/* onPress={() => dispatch(selectCategory(item))} */

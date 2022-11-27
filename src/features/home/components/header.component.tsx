@@ -4,11 +4,11 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { toggleAppearance, toggleDarkMode } from "../../../store/utils/utils";
-
 import BlackLogo from "../../../../assets/upay-logo.png";
 import WhiteLogo from "../../../../assets/upay-logo-2.png";
+
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
+import { toggleAppearance, toggleDarkMode } from "../../../store/utils/utils";
 
 import { HeaderContainer, HeaderImage, Row, Button } from "./header.styles";
 

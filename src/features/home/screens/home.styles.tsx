@@ -2,7 +2,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
-import { ProductProps } from "./home.screen";
+import type { ProductProps } from "./home.screen";
 
 export const ProductList = styled(
   FlatList as new () => FlatList<ProductProps>
